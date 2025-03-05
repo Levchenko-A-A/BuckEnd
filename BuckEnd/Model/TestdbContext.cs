@@ -37,7 +37,7 @@ public partial class TestdbContext : DbContext
             entity.Property(e => e.City)
                 .HasMaxLength(30)
                 .HasColumnName("city");
-            entity.Property(e => e.Compane)
+            entity.Property(e => e.Company)
                 .HasMaxLength(50)
                 .HasColumnName("compane");
             entity.Property(e => e.Firstname)

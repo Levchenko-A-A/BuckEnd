@@ -20,9 +20,9 @@ namespace BuckEnd.Controler
                 db.Clients.Add(new Client()
                 {
                     City = person!.City,
-                    Compane = person.Compane,
+                    Company = person.Company,
                     Firstname = person.Firstname,
-                    Phone = person.Phone,
+                    Phone = person.Firstname,
                     Lastname = person.Lastname,
                     Surname = person.Surname
                 });
@@ -33,6 +33,7 @@ namespace BuckEnd.Controler
                 response.ContentLength64 = buffer.Length;
                 response.ContentType = "text/html";
                 response.ContentEncoding = Encoding.UTF8;
+                response.StatusCode = 200;
                 using Stream output = response.OutputStream;
                 await output.WriteAsync(buffer);
                 await output.FlushAsync();
@@ -46,11 +47,12 @@ namespace BuckEnd.Controler
                 List<Client> clients = db.Clients.ToList();
                 string json = JsonSerializer.Serialize<List<Client>>(clients);
                 var response = context.Response;
-                string responseText = "OK";
+                string responseText = json;
                 byte[] buffer = Encoding.UTF8.GetBytes(responseText);
                 response.ContentLength64 = buffer.Length;
                 response.ContentType = "text/html";
                 response.ContentEncoding = Encoding.UTF8;
+                response.StatusCode = 200;
                 using Stream output = response.OutputStream;
                 await output.WriteAsync(buffer);
                 await output.FlushAsync();

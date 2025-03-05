@@ -15,7 +15,7 @@ public partial class Client
     [JsonPropertyName("lastname")]
     public string Lastname { get; set; } = null!;
     [JsonPropertyName("compane")]
-    public string Compane { get; set; } = null!;
+    public string Company { get; set; } = null!;
     [JsonPropertyName("phone")]
     public string Phone { get; set; } = null!;
     [JsonPropertyName("city")]
@@ -26,6 +26,6 @@ public partial class Client
 
     public override string? ToString()
     {
-        return Firstname+" "+Lastname+" "+Compane;
+        return Firstname+" "+Lastname+" "+Company;
     }
 }
