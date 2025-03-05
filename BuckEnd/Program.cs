@@ -16,15 +16,26 @@ while (true)
     var reader = new StreamReader(body, encoding);
     string quary = reader.ReadToEnd();
     string table = context.Request.Headers[0]!;
-    Console.WriteLine(quary);
-    Console.WriteLine(method);
-    Console.WriteLine(table);
+    //Console.WriteLine(quary);
+    //Console.WriteLine(method);
+    //Console.WriteLine(table);
     if (method == "POST")
     {
-        switch(table)
+        switch (table)
         {
-            case "client": ClientController.AddClient(quary, context);break;
-            //case ""
+            case "client": ClientController.AddClient(quary, context); break;
+                //case ""
+        }
+    }
+    else if (method == "PUT")
+    {
+    }
+    else if (method == "GET")
+    {
+        switch (table)
+        {
+            //case "client": ClientController.AddClient(quary, context); break;
+                //case ""
         }
     }
 }
